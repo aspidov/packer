@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
  */
 @Data
 @Builder
-@ToString
 public class PackerTreeNode<T extends KnapsackItem> {
     /**
      * Parent tree node

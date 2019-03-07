@@ -14,6 +14,10 @@ import com.mobiquityinc.solver.PackerSolutionFacade;
 import com.mobiquityinc.solver.impl.KnapsackProblemSolverImpl;
 import com.mobiquityinc.solver.impl.PackerSolutionFacadeImpl;
 
+
+/**
+ * Class that defines module for Guice
+ */
 public class PackerModule extends AbstractModule {
     @Override
     protected void configure() {

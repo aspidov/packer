@@ -17,6 +17,9 @@ public class DefaultPackerConfigurationProviderImpl implements PackerConfigurati
     private static final String CURRENCY_SYMBOL = "€";
     private static final String ITEM_SEPARATOR = " ";
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public PackerConfiguration getConfiguration() {
         return PackerConfiguration

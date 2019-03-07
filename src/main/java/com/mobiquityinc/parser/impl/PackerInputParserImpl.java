@@ -27,10 +27,13 @@ public class PackerInputParserImpl implements PackerParserService {
     private final PackerInputValidator inputValidator;
     private final PackerConfigurationProvider configurationProvider;
 
+    /**
+     * {@inheritDoc}
+     */
     public KnapsackTask parseSingleKnapsack(String line) {
         final var task = buildKnapsackTask(line);
         final var validationResult = Validation.buildDefaultValidatorFactory().getValidator().validate(task);
-        if (validationResult.isEmpty()) {
+        if (validationResult.isEmpty()) { // empty validation result means that constraint violations does not found
             return task;
         }
         final var validationMessage = validationResult.stream()

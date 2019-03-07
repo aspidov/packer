@@ -15,6 +15,9 @@ public class KnapsackProblemSolverImpl implements KnapsackProblemSolver {
 
     private static final int EQUAL_ITEMS_COMPARATION_RESULT = 0;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Collection<KnapsackItem> solve(KnapsackTask knapsackTask) {
         final var solutionTree = new KnapsackTreeBuilder(knapsackTask.getWeight()).build(knapsackTask.getItems());
@@ -32,6 +35,13 @@ public class KnapsackProblemSolverImpl implements KnapsackProblemSolver {
 
     }
 
+    /**
+     * The method finds optimal solution in list of leaf nodes.
+     * The optimal solution is solution with max cost. If costs of two solutions are same, more optiomal will be solution with less weight
+     *
+     * @param leafNodes all leaf nodes from branch and bound tree
+     * @return leaf with optimal solution
+     */
     private Optional<PackerTreeNode<KnapsackItem>> findSolutionInTree(List<PackerTreeNode<KnapsackItem>> leafNodes) {
         return leafNodes.stream().min((item1, item2) -> {
             final var costCompareResult = -Double.compare(item1.getBranchTotalCost(), item2.getBranchTotalCost());

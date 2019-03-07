@@ -12,10 +12,13 @@ public class SolutionSerializerImpl implements SolutionSerializer {
     private static final String RESULT_DELIMETER = ",";
     private static final String EMPTY_SOLUTION_PLACEHOLDER = "-";
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String serializeSolution(Collection<KnapsackItem> solution) {
         if (solution.isEmpty()) {
-            return EMPTY_SOLUTION_PLACEHOLDER;
+            return EMPTY_SOLUTION_PLACEHOLDER; // empty solution  means that solution is not found
         }
         return solution.stream()
                 .sorted(Comparator.comparingLong(KnapsackItem::getIndexNumber))
