@@ -27,17 +27,19 @@ public class PackerSolutionFacadeImpl implements PackerSolutionFacade {
     public String solveFromFile(String filePath) throws APIException {
         final var path = getPathOrThrow(filePath);
         try (var lines = Files.lines(path)) {
-            return lines.map(line -> {
-                final var task = problemParser.parseSingleKnapsack(line);
-                final var solution = problemSolver.solve(task);
-                return solutionSerializer.serializeSolution(solution);
-            })
+            return lines.map(this::handleSingleProblemLine)
                     .collect(Collectors.joining("\n"));
         } catch (IncorrectFormatException e) {
             throw new APIException(e.getMessage());
         } catch (IOException e) {
             throw new APIException("File not found in provided path");
         }
+    }
+
+    private String handleSingleProblemLine(String line) {
+        final var task = problemParser.parseSingleKnapsack(line);
+        final var solution = problemSolver.solve(task);
+        return solutionSerializer.serializeSolution(solution);
     }
 
     private Path getPathOrThrow(String filePath) throws APIException {

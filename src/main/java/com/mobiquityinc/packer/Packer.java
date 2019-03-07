@@ -11,6 +11,9 @@ public class Packer {
 
     }
 
+    /**
+     * injector for Guice di container
+     */
     private static final Injector injector = Guice.createInjector(new PackerModule());
 
     /**
