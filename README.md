@@ -16,4 +16,11 @@ Input file can consist of multiple lines in format like this:
 ```
 81 : (1,53.38,€45) (2,88.62,€98) (3,78.48,€3) (4,72.30,€76) (5,30.18,€9) (6,46.34,€48)
 ```
+## Notes
 
+If you want to open the project in your IDE, **lombok plugin** is required.
+
+Lombok home page: https://projectlombok.org/
+IntelliJ plugin page: https://plugins.jetbrains.com/plugin/6317-lombok-plugin
+VS Code plugin: https://projectlombok.org/setup/vscode
+Other IDE extensions are available in Setup install menu item in lombok's home page.
